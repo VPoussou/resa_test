@@ -1,9 +1,11 @@
 {
   "name": "resa_test",
   "version": "1.0.0",
+  "type": "module",
   "description": "A simple webapp providing basic functionalities for appointment scheduling and management. Typescript, Node and React, with additional libraries for utility for SQL for database setup",
-  "main": "index.js",
+  "main": "server/server.ts",
   "scripts": {
+    "start": "npx tsx server/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,13 +13,16 @@
   "license": "ISC",
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/express": "^4.17.21",
     "@types/node": "^20.11.28",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "tsx": "^4.7.1",
     "typescript": "^5.4.2"
   },
   "dependencies": {
     "axios": "^1.6.8",
+    "express": "^4.18.3",
     "mysql2": "^3.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
