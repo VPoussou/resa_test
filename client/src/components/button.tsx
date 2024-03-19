@@ -7,7 +7,7 @@ interface ButtonProps {
   onClick: () => void;
 }
 
-const IconButton: React.FC<ButtonProps> = ({ text, svgPath, svgAlt, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ text, svgPath, svgAlt, onClick }) => {
   if (!text && !svgPath) {
     throw new Error('Either "text" or "svgPath" must be provided');
   }
@@ -20,4 +20,4 @@ const IconButton: React.FC<ButtonProps> = ({ text, svgPath, svgAlt, onClick }) =
   );
 };
 
-export default IconButton;
+export default Button;

@@ -1,44 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import Dropdown from './dropdown';
 
-const TableLine: React.FC = () => {
-  const [buyers, setBuyers] = useState<any[]>([]);
-  const [vendors, setVendors] = useState<any[]>([]);
+import React from 'react';
+import Button from './button';
 
-  useEffect(() => {
-    const fetchBuyers = async () => {
-      const response = await fetch('/buyers'); // replace with your API endpoint
-      const data = await response.json();
-      setBuyers(data);
-    };
+interface TableRowProps {
+  cells: React.ReactNode[];
+  onRemove: () => void;
+  onEdit: (data: any) => void
+}
 
-    fetchBuyers();
-  }, []);
-
-  useEffect(() => {
-    const fetchVendors = async () => {
-      const response = await fetch('/vendors'); // replace with your API endpoint
-      const data = await response.json();
-      setVendors(data);
-    };
-
-    fetchVendors();
-  }, []);
-
+const TableRow: React.FC<TableRowProps> = ({ cells, onRemove, onEdit }) => {
+  
+    const deleteSvgPath = 'delete.svg'
+    const editSvgPath = 'edit.svg'
+    const handleEditClick = () => {
+        onEdit(cells)
+      };
   return (
-    <div>
-      <input type="text" name="title" id="titleInput" />
-      <select name="type" id="typeSelect">
-        <option value="virtual">Virtual</option>
-        <option value="physical">Physical</option>
-      </select>
-      <input type="text" name="location" id="locationInput" />
-      <Dropdown column="name" options={vendors} />
-      <Dropdown column="name" options={buyers} />
-      <input type="datetime-local" name="startTime" id="startTimeInput" />
-      <input type="datetime-local" name="endTime" id="endTimeInput" />
+  <div className="table-row">
+    <div className="table-cell">
+        <Button svgPath={deleteSvgPath} onClick={onRemove}></Button>
+        <Button svgPath={editSvgPath} onClick={handleEditClick}></Button>
     </div>
-  );
+    {cells.map((cell, cellIndex) => (
+      <div key={cellIndex} className="table-cell">
+        {cell}
+      </div>
+    ))}
+  </div>
+  )
 };
 
-export default TableLine;
+export default TableRow;

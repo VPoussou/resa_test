@@ -18,7 +18,7 @@ Vendor.init({
   }
   },
  {
-  tableName: 'buyer',
+  tableName: 'vendor',
   sequelize: sequelizeConfig,
   timestamps: false
 });

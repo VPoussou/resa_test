@@ -1,0 +1,25 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adjust the gap between cells as needed */
+  overflow: auto;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.table-cell {
+  border: 1px solid #ccc; /* Adjust the border as needed */
+  padding: 5px; /* Adjust the padding as needed */
+  min-width: 10vw;
+  overflow: auto;
+}
+
+.table-cell img {
+  width: 1.25rem;
+  height: 1.25rem;
+}

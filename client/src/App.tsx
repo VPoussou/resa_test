@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import TableLine from './components/table-line';
+import TableLineSelector from './components/table-line-selector';
+import TableRow from './components/table-line';
+import Table from './components/table';
 
 function App() {
   return (
     <div className="App">
-      <TableLine/>
+      <Table/>
     </div>
   );
 }
