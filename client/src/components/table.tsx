@@ -5,6 +5,7 @@ import TableRow from './table-line';
 
 const Table: React.FC = () => {
     const [tableLines, setTableLines] = useState<any[]>([]);
+    const [selector, setSelector] = useState<any[]>([]);
 
     const addTableLine = (line: any) => {
       setTableLines(prevLines => [...prevLines, line]);
@@ -12,6 +13,10 @@ const Table: React.FC = () => {
   
     const removeTableLine = (lineIndex: number) => {
       setTableLines(prevLines => prevLines.filter((_, index) => index !== lineIndex));
+    };
+
+    const switchToSelector = (line: any) => {
+      setSelector(line);
     };
 
     return (
@@ -26,9 +31,9 @@ const Table: React.FC = () => {
                 <div className="table-cell">Start Time</div>
                 <div className="table-cell">End Time</div>
           </div>
-          <TableLineSelector onButtonClick={addTableLine} />
+          <TableLineSelector onButtonClick={addTableLine} initTitle={} initType={} initLocation={} initVendor={} initBuyer={} initStartTime={} initEndTime={} />
           {tableLines.map((line, index) => (
-            <TableRow key={index} cells={line} onRemove={() => removeTableLine(index)} onEdit={() =>{}}/>
+            <TableRow key={index} cells={line} onRemove={() => removeTableLine(index)} onEdit={() => switchToSelector(index)}/>
           ))}
         </div>
       );
